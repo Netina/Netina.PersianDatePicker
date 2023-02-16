@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Xam.Netina.DatePicker.Forms.Views.NetinaDatePicker"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:itemtemplates="clr-namespace:Xam.Netina.DatePicker.Forms.Views.ItemTemplates"
+    FlowDirection="RightToLeft">
+    <ContentView.Content>
+
+
+        <Frame
+            Margin="15"
+            Padding="0"
+            BackgroundColor="{AppThemeBinding Light=#FFCA60,
+                                              Dark=#2c3e50,
+                                              Default=#FFCA60}"
+            CornerRadius="8"
+            FlowDirection="RightToLeft"
+            VerticalOptions="Center">
+            <ScrollView>
+                <Grid>
+                    <StackLayout>
+                        <Grid Margin="15,15,15,8" ColumnDefinitions="Auto,*,Auto">
+                            <Button
+                                x:Name="pervMonthBtn"
+                                Grid.Column="0"
+                                Margin="1,0"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="#805F6386"
+                                BorderWidth="1"
+                                Clicked="pervMonthBtn_Clicked"
+                                CornerRadius="5"
+                                FontSize="Title"
+                                HeightRequest="35"
+                                TextColor="{AppThemeBinding Light=#5F6386,
+                                                            Dark=#333}"
+                                WidthRequest="35" />
+                            <StackLayout
+                                Grid.Column="1"
+                                HorizontalOptions="Center"
+                                Orientation="Horizontal"
+                                VerticalOptions="Center">
+                                <Label
+                                    Margin="3,0"
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    TextColor="{AppThemeBinding Light=#5F6386,
+                                                                Dark=#333}">
+
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span
+                                                    x:Name="monthLable"
+                                                    FontAttributes="Bold"
+                                                    FontSize="21" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="monthSection_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    TextColor="{AppThemeBinding Light=#5F6386,
+                                                                Dark=#333}">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span
+                                                    x:Name="yearLable"
+                                                    FontAttributes="Bold"
+                                                    FontSize="22" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="yearSection_Tapped" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                            <Button
+                                x:Name="nextMonthBtn"
+                                Grid.Column="2"
+                                Padding="0"
+                                BackgroundColor="Transparent"
+                                BorderColor="#805F6386"
+                                BorderWidth="1"
+                                Clicked="nextMonthBtn_Clicked"
+                                CornerRadius="6"
+                                FontSize="Title"
+                                HeightRequest="35"
+                                TextColor="{AppThemeBinding Light=#5F6386,
+                                                            Dark=#333}"
+                                WidthRequest="35" />
+                        </Grid>
+                        <Frame
+                            Padding="5"
+                            BackgroundColor="White"
+                            CornerRadius="8"
+                            HasShadow="False">
+                            <StackLayout>
+
+                                <Grid Margin="0,8,0,4" ColumnDefinitions="*,*,*,*,*,*,*">
+                                    <Label
+                                        Grid.Column="0"
+                                        HorizontalOptions="Center"
+                                        Text="شنبه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                    <Label
+                                        Grid.Column="1"
+                                        HorizontalOptions="Center"
+                                        Text="یکشبنه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                    <Label
+                                        Grid.Column="2"
+                                        HorizontalOptions="Center"
+                                        Text="دوشنبه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                    <Label
+                                        Grid.Column="3"
+                                        HorizontalOptions="Center"
+                                        Text="سه شنبه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                    <Label
+                                        Grid.Column="4"
+                                        HorizontalOptions="Center"
+                                        Text="چهارشنبه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                    <Label
+                                        Grid.Column="5"
+                                        HorizontalOptions="Center"
+                                        Text="پنج شنبه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                    <Label
+                                        Grid.Column="6"
+                                        HorizontalOptions="Center"
+                                        Text="جمعه"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                </Grid>
+                                <CollectionView
+                                    x:Name="daysCollectionView"
+                                    HeightRequest="270"
+                                    RotationY="180">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" Span="7" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <itemtemplates:NetinaDayItemTemplate
+                                                IsEnabled="{Binding IsEnable}"
+                                                IsSelected="{Binding IsSelected}"
+                                                IsToday="{Binding IsToday}"
+                                                RotationY="180"
+                                                Selected="NetinaDayItemTemplate_Selected" />
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+
+                                <Grid
+                                    x:Name="buttonGrid"
+                                    Grid.Row="1"
+                                    ColumnDefinitions="*,Auto"
+                                    IsVisible="False">
+                                    <Button
+                                        BackgroundColor="{AppThemeBinding Light=#FFCA60,
+                                                                          Dark=#2c3e50}"
+                                        Clicked="SubmitDateButton_Clicked"
+                                        CornerRadius="8"
+                                        Text="تایید و اتتخابـــ"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#fff}" />
+                                    <Button
+                                        Grid.Column="1"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="#805F6386"
+                                        BorderWidth="1"
+                                        Clicked="CloseButton_Clicked"
+                                        CornerRadius="8"
+                                        Text="بستن"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                    <Grid
+                        x:Name="monthGrid"
+                        BackgroundColor="#70000000"
+                        IsVisible="False">
+                        <Frame
+                            Margin="15"
+                            CornerRadius="8"
+                            HeightRequest="300"
+                            VerticalOptions="Center">
+                            <Grid RowDefinitions="Auto,*,Auto">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label
+                                        Margin="3,0"
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}"
+                                        VerticalOptions="Center">
+
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span
+                                                        FontAttributes="Bold"
+                                                        FontSize="21"
+                                                        Text="ماه مورد نظر را انتخابـــ کنید" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Button
+                                        Grid.Column="1"
+                                        BackgroundColor="#F6F7F6"
+                                        BorderColor="#ccc"
+                                        Clicked="yearMonthChange_Clicked"
+                                        CornerRadius="8"
+                                        Text="انتخابــ سال"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                                <CollectionView
+                                    x:Name="monthsCollectionView"
+                                    Grid.Row="1"
+                                    Margin="0,10,0,0"
+                                    RotationY="180">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" Span="3" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <itemtemplates:NetinaMonthItemTemplate IsSelected="{Binding IsSelected}" Selected="NetinaMonthItemTemplate_Selected" />
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                                <Button
+                                    Grid.Row="2"
+                                    Margin="-10,0,-10,-10"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="#ccc"
+                                    Clicked="monthClose_Clicked"
+                                    HeightRequest="40"
+                                    Text="بستن" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+
+                    <Grid
+                        x:Name="yearGrid"
+                        BackgroundColor="#70000000"
+                        IsVisible="False">
+                        <Frame
+                            Margin="15"
+                            CornerRadius="8"
+                            HeightRequest="300"
+                            VerticalOptions="Center">
+                            <Grid RowDefinitions="Auto,*,Auto">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label
+                                        Margin="3,0"
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        TextColor="{AppThemeBinding Light=#5F6386,
+                                                                    Dark=#333}"
+                                        VerticalOptions="Center">
+
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span
+                                                        FontAttributes="Bold"
+                                                        FontSize="21"
+                                                        Text="سال مورد نظر را انتخابـــ کنید" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Button
+                                        Grid.Column="1"
+                                        BackgroundColor="#F6F7F6"
+                                        BorderColor="#ccc"
+                                        Clicked="yearMonthChange_Clicked"
+                                        CornerRadius="8"
+                                        Text="انتخابــ ماه"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                                <CollectionView
+                                    x:Name="yearsCollectionView"
+                                    Grid.Row="1"
+                                    Margin="0,10,0,0"
+                                    RotationY="180">
+                                    <CollectionView.ItemsLayout>
+                                        <GridItemsLayout Orientation="Vertical" Span="4" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <itemtemplates:NetinaYearItemTemplate IsSelected="{Binding IsSelected}" Selected="NetinaYearItemTemplate_Selected" />
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+                                <Button
+                                    Grid.Row="2"
+                                    Margin="-10,0,-10,-10"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="#ccc"
+                                    Clicked="yearClose_Clicked"
+                                    HeightRequest="40"
+                                    Text="بستن" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

@@ -1,7 +1,58 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.44">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+	  <TargetFrameworks>netstandard2.0;monoandroid10.0;Xamarin.iOS10;</TargetFrameworks>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <Title>Xam.Netina.DatePicker.Forms</Title>
   </PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="Platforms\**\*.cs" />
+		<None Include="Platforms\**\*.cs" />
+		<None Include="Resources\*.cs" />
+		<Compile Remove="Resources\*.cs" />
+		<Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+		<None Include="Readme.txt" pack="true" PackagePath="." />
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('monoandroid')) ">
+		<Compile Include="Platforms\Droid\**\*.cs" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MD.PersianDateTime.Standard" Version="2.4.1" />
+		<PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\NetinaDatePicker.xaml.cs">
+	    <DependentUpon>NetinaDatePicker.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Views\ItemTemplates\NetinaDayItemTemplate.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Views\ItemTemplates\NetinaMonthItemTemplate.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Views\ItemTemplates\NetinaYearItemTemplate.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Views\NetinaDatePicker.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Platforms\iOS\" />
+	</ItemGroup>
 
 </Project>

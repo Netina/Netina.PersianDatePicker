@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Xam.Netina.DatePicker.Forms.Views.ItemTemplates.NetinaDayItemTemplate"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ContentView.Content>
+
+        <Frame
+            x:Name="mainFrame"
+            Margin="2"
+            Padding="0,10"
+            BackgroundColor="#F6F7F6"
+            CornerRadius="5"
+            HasShadow="False"
+            IsEnabled="{Binding IsEnable}">
+            <Grid RowDefinitions="*,Auto">
+                <Label
+                    x:Name="dayLabel"
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    IsEnabled="{Binding IsEnable}"
+                    TextColor="{AppThemeBinding Light=#5F6386,
+                                                Dark=#fff}"
+                    VerticalOptions="Center">
+
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span
+                                    FontAttributes="Bold"
+                                    FontSize="17"
+                                    Text="{Binding Day}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+
+                <Label
+                    x:Name="isTodayLabel"
+                    Grid.Row="1"
+                    Margin="0,0,0,-5"
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    Text="امروز"
+                    TextColor="{AppThemeBinding Light=#5F6386,
+                                                Dark=#fff}"
+                    VerticalOptions="End" />
+
+            </Grid>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+            </Frame.GestureRecognizers>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

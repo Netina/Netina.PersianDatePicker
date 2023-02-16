@@ -1,11 +1,14 @@
  # Netina.PersianDatePicker [![NuGet](https://img.shields.io/nuget/v/Netina.PersianDatePicker.svg)](https://www.nuget.org/packages/Netina.PersianDatePicker/) [![NuGet](https://img.shields.io/nuget/dt/Netina.Netina.PersianDatePicker.svg)](https://www.nuget.org/packages/Netina.PersianDatePicker/) [![GitHub issues](https://img.shields.io/github/issues/Netina/Netina.PersianDatePicker.svg)](https://github.com/Netina/Netina.PersianDatePicker/issues)
 
 
-Persian DatePicker
+Persian DatePicker for .NET Framework ( Xamarin.Forms , .NET MAUI , WPF , ... )
 
 ### Setup
     Install-Package Xam.Netina.PersianDatePicker
 * Available on NuGet: [https://www.nuget.org/packages/Netina.PersianDatePicker](https://www.nuget.org/packages/Netina.PersianDatePicker/) 
+
+![Landing](screenshots/landing.png)
+
 ### Add Init to platforms 
 You have to add Init() method to each platform you used 
 iOS

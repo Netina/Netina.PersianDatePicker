@@ -4,6 +4,20 @@
 	  <TargetFrameworks>netstandard2.0;monoandroid10.0;Xamarin.iOS10;</TargetFrameworks>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Title>Xam.Netina.DatePicker.Forms</Title>
+	  <PackageId>Xam.Netina.DatePicker.Forms</PackageId>
+	  <Version>1.0.0.1</Version>
+	  <Authors>Hossein Masoumi , Amir Hossein Khademi , Sina Mansouri </Authors>
+	  <Company>ViraNasirFanavar</Company>
+	  <Product>Xam.Netina.DatePicker.Forms</Product>
+	  <Description>Persian DatePicker for .NET Framework ( Xamarin.Forms , .NET MAUI , WPF , ... )
+Documentation and usage : https://github.com/Netina/Netina.PersianDatePicker</Description>
+	  <PackageProjectUrl>https://github.com/Netina/Netina.PersianDatePicker</PackageProjectUrl>
+	  <PackageIcon>NetinaLogo.jpg</PackageIcon>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/Netina/Netina.PersianDatePicker</RepositoryUrl>
+	  <PackageTags>datepicker,persian datepicker</PackageTags>
+	  <AssemblyVersion>1.0.0.1</AssemblyVersion>
+	  <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 	<ItemGroup>
 		<Compile Remove="Platforms\**\*.cs" />
@@ -11,6 +25,14 @@
 		<None Include="Resources\*.cs" />
 		<Compile Remove="Resources\*.cs" />
 		<Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
+		<None Include="..\..\NetinaLogo.jpg">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Include="Readme.txt" pack="true" PackagePath="." />
 	</ItemGroup>
 
@@ -22,6 +44,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+		<Compile Include="Platforms\iOS\**\*.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -49,10 +72,6 @@
 	  <EmbeddedResource Update="Views\NetinaDatePicker.xaml">
 	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Platforms\iOS\" />
 	</ItemGroup>
 
 </Project>

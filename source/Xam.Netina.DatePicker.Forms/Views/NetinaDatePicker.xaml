@@ -228,10 +228,12 @@
                                     </Label>
                                     <Button
                                         Grid.Column="1"
-                                        BackgroundColor="#F6F7F6"
-                                        BorderColor="#ccc"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="#505F6386"
+                                        BorderWidth="1"
                                         Clicked="yearMonthChange_Clicked"
                                         CornerRadius="8"
+                                        HeightRequest="35"
                                         Text="انتخابــ سال"
                                         VerticalOptions="Center" />
                                 </Grid>
@@ -294,10 +296,12 @@
 
                                     <Button
                                         Grid.Column="1"
-                                        BackgroundColor="#F6F7F6"
-                                        BorderColor="#ccc"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="#505F6386"
+                                        BorderWidth="1"
                                         Clicked="yearMonthChange_Clicked"
                                         CornerRadius="8"
+                                        HeightRequest="35"
                                         Text="انتخابــ ماه"
                                         VerticalOptions="Center" />
                                 </Grid>

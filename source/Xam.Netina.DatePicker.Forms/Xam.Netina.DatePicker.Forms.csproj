@@ -5,19 +5,19 @@
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <Title>Xam.Netina.DatePicker.Forms</Title>
 	  <PackageId>Xam.Netina.DatePicker.Forms</PackageId>
-	  <Version>1.0.0.1</Version>
-	  <Authors>Hossein Masoumi , Amir Hossein Khademi , Sina Mansouri </Authors>
+	  <Version>1.0.0.2</Version>
+	  <Authors>Hossein Masoumi , Amir Moghise , Sina Mansouri  , Amir Hossein Khademi </Authors>
 	  <Company>ViraNasirFanavar</Company>
 	  <Product>Xam.Netina.DatePicker.Forms</Product>
 	  <Description>Persian DatePicker for .NET Framework ( Xamarin.Forms , .NET MAUI , WPF , ... )
-Documentation and usage : https://github.com/Netina/Netina.PersianDatePicker</Description>
+	  Documentation and usage : https://github.com/Netina/Netina.PersianDatePicker</Description>
 	  <PackageProjectUrl>https://github.com/Netina/Netina.PersianDatePicker</PackageProjectUrl>
 	  <PackageIcon>NetinaLogo.jpg</PackageIcon>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <RepositoryUrl>https://github.com/Netina/Netina.PersianDatePicker</RepositoryUrl>
 	  <PackageTags>datepicker,persian datepicker</PackageTags>
-	  <AssemblyVersion>1.0.0.1</AssemblyVersion>
-	  <FileVersion>1.0.0.1</FileVersion>
+	  <AssemblyVersion>1.0.0.2</AssemblyVersion>
+	  <FileVersion>1.0.0.2</FileVersion>
   </PropertyGroup>
 	<ItemGroup>
 		<Compile Remove="Platforms\**\*.cs" />

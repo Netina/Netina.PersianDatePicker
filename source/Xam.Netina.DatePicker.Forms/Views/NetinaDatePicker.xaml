@@ -108,42 +108,49 @@
                                     <Label
                                         Grid.Column="0"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="شنبه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />
                                     <Label
                                         Grid.Column="1"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="یکشبنه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />
                                     <Label
                                         Grid.Column="2"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="دوشنبه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />
                                     <Label
                                         Grid.Column="3"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="سه شنبه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />
                                     <Label
                                         Grid.Column="4"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="چهارشنبه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />
                                     <Label
                                         Grid.Column="5"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="پنج شنبه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />
                                     <Label
                                         Grid.Column="6"
                                         HorizontalOptions="Center"
+                                        LineBreakMode="TailTruncation"
                                         Text="جمعه"
                                         TextColor="{AppThemeBinding Light=#5F6386,
                                                                     Dark=#333}" />

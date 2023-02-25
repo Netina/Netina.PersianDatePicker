@@ -33,7 +33,6 @@
 		  <Pack>True</Pack>
 		  <PackagePath>\</PackagePath>
 		</None>
-		<None Include="Readme.txt" pack="true" PackagePath="." />
 	</ItemGroup>
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
